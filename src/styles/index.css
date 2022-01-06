@@ -1,0 +1,134 @@
+:root{
+    --primary-color: #5680E9;
+    --primary-bg-color: #d6e1ff;
+}
+
+body {
+    font-family: Montserrat;
+    padding-top: 25px; /* Just for testing */
+}
+
+button {
+    font-family: Montserrat;
+    font-size: 18px;
+    width: 136px;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    outline: none;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+    transition-duration: 100ms;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+button:hover {
+    background-color: var(--primary-bg-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.input-container {
+    margin: 0px 0px 0px 15px;
+}
+
+.input-container p {
+    font-size: 16px;
+    margin: 0px 0px 6px 0px;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 6px;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.input-box .number-input {
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 11px 8px 11px 5px;
+    border: none;
+    outline: none;
+    transition-duration: 100ms;
+
+    -moz-appearance: textfield;
+}
+
+.input-box .selection-input {
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 11px 8px 11px 5px;
+    border: none;
+    outline: none;
+    transition-duration: 100ms;
+
+    -moz-appearance: textfield;
+}
+
+.input-box input::-webkit-outer-spin-button,
+.input-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-box .prefix {
+    font-family: Montserrat;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.switch-button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--primary-color);
+    outline: none;
+    background-color: white;
+    border-radius: 25px;
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+    transition-duration: 50ms;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.switch-button svg {
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    padding: 0px;
+    color: var(--primary-color);
+}
+
+.result-popup {
+    padding-top: 25px;
+}
+
+.result-popup h1 {
+    font-size: 32px;
+    padding: 0px 0px 10px 0px;
+    margin: 0px;
+}
+
+.result-popup h2 {
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.result-popup p {
+    font-size: 18px;
+    padding: 2px 0px 0px 0px;
+    margin: 0px;
+}
