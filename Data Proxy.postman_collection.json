@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "aa989336-9ba5-4d13-a745-e5aabe06ec60",
+		"name": "Fxwidgets Data Proxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://fxwidgets-data-proxy.azurewebsites.net/api/convert?symbol_from=EUR&symbol_to=USD&amount=100",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fxwidgets-data-proxy.azurewebsites.net/api/convert?symbol_from=EUR&symbol_to=USD&amount=100",
+					"protocol": "https",
+					"host": [
+						"fxwidgets-data-proxy",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"convert"
+					],
+					"query": [
+						{
+							"key": "symbol_from",
+							"value": "EUR"
+						},
+						{
+							"key": "symbol_to",
+							"value": "USD"
+						},
+						{
+							"key": "amount",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://fxwidgets-data-proxy.azurewebsites.net/api/pivots?symbol=EUR/USD&period=1d",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fxwidgets-data-proxy.azurewebsites.net/api/pivots?symbol=EUR/USD&period=1d",
+					"protocol": "https",
+					"host": [
+						"fxwidgets-data-proxy",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"pivots"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "EUR/USD"
+						},
+						{
+							"key": "period",
+							"value": "1d"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
