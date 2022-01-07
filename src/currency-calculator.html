@@ -13,7 +13,7 @@
                 <p>Amount</p>
                 <div class="input-box">
                     <div class="prefix">$</div>
-                    <input class="number-input" type="text" placeholder="1.00">
+                    <input class="number-input" id="amount-input" type="text" placeholder="1.00">
                 </div>
             </div>
 
@@ -21,13 +21,13 @@
             <div class="input-container">
                 <p>From</p>
                 <div class="input-box">
-                    <input class="selection-input" type="text" placeholder="USD">
+                    <input class="selection-input" id="from-input" type="text" placeholder="USD">
                 </div>
             </div>
 
             <!-- SWITCH -->
             <div class="input-container">
-                <button class="switch-button">
+                <button class="switch-button" id="switch-button">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 17" aria-hidden="true" class="miscellany___StyledIconSwap-sc-1r08bla-1 fZJuOo"><path fill="currentColor" fill-rule="evenodd" d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z" clip-rule="evenodd"></path></svg>
                 </button>
             </div>
@@ -36,25 +36,29 @@
             <div class="input-container">
                 <p>To</p>
                 <div class="input-box">
-                    <input class="selection-input" type="text" placeholder="EUR">
+                    <input class="selection-input" id="to-input" type="text" placeholder="EUR">
                 </div>
             </div>
 
         </div>
 
         <div class="container">
-            <button id="calculate-button">Calculate</button>
+            <button id="calculate-button">
+                <span>Calculate</span>
+                <img src="img/loader.svg" width="22" alt="" id="calculate-button-loader">
+            </button>
         </div>
 
         <div class="container">
             <div class="result-popup" id="result-popup">
-                <h2>5 USD =</h2>
-                <h1>4.41 EUR</h1>
-                <p>1 USD = 0.88 EUR</p>
-                <p>1 EUR = 1.13 USD</p>
+                <h2 id="fromAmountIndicator">5 USD =</h2>
+                <h1 id="resultAmountIndicator">4.41 EUR</h1>
+                <p id="singleFromIndicator">1 USD = 0.88 EUR</p>
+                <p id="singleToIndicator">1 EUR = 1.13 USD</p>
             </div>
         </div>
 
+        <script src="scripts/base.js"></script>
         <script src="scripts/currency-calculator.js"></script>
     </body>
 </html>

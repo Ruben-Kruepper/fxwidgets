@@ -2,6 +2,7 @@
     --primary-color: #5680E9;
     --primary-bg-color: #e4ebff;
     --primary-border-color: rgb(150, 150, 150);
+    --result-text-color: black;
 }
 
 body {
@@ -13,6 +14,7 @@ button {
     font-family: Montserrat;
     font-size: 18px;
     width: 136px;
+    height: 44px;
     border: 1px solid var(--primary-color);
     border-radius: 6px;
     outline: none;
@@ -111,23 +113,39 @@ button:hover {
 }
 
 .result-popup {
-    padding-top: 25px;
+    margin-top: 25px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 500px;
+    text-align: center;
 }
 
 .result-popup h1 {
     font-size: 38px;
     padding: 0px 0px 10px 0px;
     margin: 0px;
+    color: var(--result-text-color);
+    transition: 50ms;
 }
 
 .result-popup h2 {
     font-size: 20px;
     padding: 0px;
     margin: 0px;
+    color: var(--result-text-color);
+    transition: 50ms;
 }
 
 .result-popup p {
     font-size: 18px;
     padding: 2px 0px 0px 0px;
     margin: 0px;
+    color: var(--result-text-color);
+    transition: 50ms;
+}
+
+#calculate-button-loader {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
