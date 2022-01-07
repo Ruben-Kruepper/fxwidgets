@@ -76,6 +76,32 @@ button:hover {
     outline: none;
     transition-duration: 100ms;
     -moz-appearance: textfield;
+    cursor: pointer;
+}
+
+.selection-input-dropdown {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 120px;
+    width: 300px;
+    max-height: 220px;
+    text-align: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.selection-input-dropdown button {
+    padding: 0px 0px 0px 8px;
+    margin: 0;
+    border: none;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    text-align: left;
 }
 
 .input-box input::-webkit-outer-spin-button,
@@ -114,10 +140,9 @@ button:hover {
 
 .result-popup {
     margin-top: 25px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 16px 20px 16px 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 500px;
+    min-width: 500px;
     text-align: center;
 }
 
