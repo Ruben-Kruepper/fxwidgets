@@ -2,6 +2,7 @@
     --primary-color: #5680E9;
     --primary-bg-color: #e4ebff;
     --primary-border-color: rgb(150, 150, 150);
+    --primary-indicator-selected-color: #f1f5ff;
     --result-text-color: black;
 }
 
@@ -33,14 +34,48 @@ button:hover {
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
 }
 
+table {
+    font-family: Montserrat;
+    font-size: 16px;
+    border-collapse: collapse;
+    width: 350px;
+    margin-top: 35px;
+    margin-left: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+table td, table th {
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--primary-bg-color);
+}
+
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container > div {
+    margin: 0px 8px 0px 8px;
+}
+
+.container-clean {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
 .input-container {
-    margin: 0px 0px 0px 15px;
+    margin: 0px 0px 0px 0px;
 }
 
 .input-container p {
@@ -75,7 +110,6 @@ button:hover {
     border: none;
     outline: none;
     transition-duration: 100ms;
-    -moz-appearance: textfield;
     cursor: pointer;
 }
 
@@ -102,6 +136,35 @@ button:hover {
     box-shadow: none;
     border-radius: 0;
     text-align: left;
+}
+
+.switch-indicator {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--primary-border-color);
+    width: 125px;
+    margin-bottom: 35px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition-duration: 100ms;
+}
+
+.switch-indicator p {
+    display: block;
+    margin: auto;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 11px 11px 11px 11px;
+    cursor: default;
+
+    -webkit-user-select: none;      
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.switch-indicator-active {
+    background-color: var(--primary-indicator-selected-color);
+    border: 1px solid var(--primary-color);
 }
 
 .input-box input::-webkit-outer-spin-button,
@@ -139,7 +202,7 @@ button:hover {
 }
 
 .result-popup {
-    margin-top: 25px;
+    transform: translate(0px, 25px);
     padding: 16px 20px 16px 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-width: 500px;
@@ -168,6 +231,13 @@ button:hover {
     margin: 0px;
     color: var(--result-text-color);
     transition: 50ms;
+}
+
+.table-popup {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #calculate-button-loader {
