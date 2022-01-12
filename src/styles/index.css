@@ -245,3 +245,8 @@ table th {
     -webkit-filter: invert(100%);
     filter: invert(100%);
 }
+
+hr {
+    width: 100%;
+    transition: 250ms;
+}

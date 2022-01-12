@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Stop Loss Take Profit Level Widget</title>
+        <link rel="stylesheet" type="text/css" href="styles/index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    </head>
+    <body>
+        <div class="container-clean">
+
+            <!-- Buy / Long -->
+            <div class="input-container">
+                <div class="switch-indicator switch-indicator-active" id="buy-indicator">
+                    <p>Buy / Long</p>
+                </div>
+            </div>
+            
+            <!-- Sell / Short -->
+            <div class="input-container">
+                <div class="switch-indicator" id="sell-indicator">
+                    <p>Sell / Short</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <!-- Currency Pair -->
+            <div class="input-container">
+                <p>Currency Pair</p>
+                <div class="input-box">
+                    <input class="selection-input" id="currency-pair-input" type="text" placeholder="" value="USD">
+                </div>
+            </div>
+
+            <!-- Account Currency -->
+            <div class="input-container">
+                <p>Account Currency</p>
+                <div class="input-box">
+                    <input class="selection-input" id="currency-input" type="text" placeholder="" value="USD">
+                </div>
+            </div>
+
+            <!-- Position Size -->
+            <div class="input-container">
+                <p>Position Size</p>
+                <div class="input-box">
+                    <input class="number-input" id="position-size-input" type="number" placeholder="1.00">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <!-- Open Price -->
+            <div class="input-container">
+                <p>Open Price</p>
+                <div class="input-box">
+                    <input class="number-input" id="open-price-input" type="number" placeholder="1.00">
+                </div>
+            </div>
+
+            <!-- Stop Loss Target Price -->
+            <div class="input-container">
+                <p>Amount to risk for SL</p>
+                <div class="input-box">
+                    <input class="number-input" id="slrisk-input" type="number" placeholder="1.00">
+                </div>
+            </div>
+
+            <!-- Take Profit Target Price -->
+            <div class="input-container">
+                <p>Amount to risk for TP</p>
+                <div class="input-box">
+                    <input class="number-input" id="tprisk-input" type="number" placeholder="1.00">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <button id="calculate-button">
+                <span>Calculate</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="result-popup" id="result-popup">
+                <h2 id="fromAmountIndicator">Your Loss</h2>
+                <h1 id="resultAmountIndicator">0:00</h1>
+                <hr>
+                <h2 id="fromAmountIndicator">Your Profit</h2>
+                <h1 id="resultAmountIndicator">0:00</h1>
+            </div>
+        </div>
+
+        <div class="selection-input-dropdown"></div>
+
+        <script src="scripts/base.js"></script>
+        <script src="scripts/stop-loss-take-profit-level.js"></script>
+    </body>
+</html>
