@@ -26,8 +26,8 @@ var currencyInput = document.getElementById("currency-input");
 var positionsizeInput = document.getElementById("position-size-input");
 
 var openpriceInput = document.getElementById("open-price-input");
-var stolotaInput = document.getElementById("stolota-input");
-var taprotaInput = document.getElementById("taprota-input");
+var atorislInput = document.getElementById("atorisl-input");
+var atoritpInput = document.getElementById("atoritp-input");
 
 var calculateButton = document.getElementById("calculate-button");
 var switchButton = document.getElementById("switch-button");
@@ -76,13 +76,13 @@ positionsizeInput.addEventListener("input", async function(event) {
     }
 });
 
-stolotaInput.addEventListener("input", async function(event) {
+atorislInput.addEventListener("input", async function(event) {
     if(calculateButton.style.display === "none"){
         calculateResult();
     }
 });
 
-taprotaInput.addEventListener("input", async function(event) {
+atoritpInput.addEventListener("input", async function(event) {
     if(calculateButton.style.display === "none"){
         calculateResult();
     }

@@ -32,6 +32,7 @@ var switchButton = document.getElementById("switch-button");
 var resultPopup = document.getElementById("result-popup");
 var selectionInputDropdown = document.getElementsByClassName("selection-input-dropdown")[0];
 var prefix = document.getElementsByClassName("prefix")[0];
+var dropdownLoader = document.getElementById("dropdown-loader");
 
 calculateButtonLoader.style.display = "none";
 resultPopup.style.display = "none";
@@ -40,7 +41,7 @@ updateCurrencies()
 async function updateCurrencies(){
     fromInput.value = from;
     toInput.value = to;
-    prefix.innerHTML = currencyDataPack.find(currency => currency.cc === from).symbol;
+    // prefix.innerHTML = currencyDataPack.find(currency => currency.cc === from).symbol;
 
     if(typeof currentFactor !== "undefined"){
         currentFactor = undefined;
@@ -53,10 +54,12 @@ async function updateCurrencies(){
 }
 
 switchButton.onclick = async function(event) {
-    var tempTo = to;
-    to = from;
-    from = tempTo;
-    await updateCurrencies();
+    if(to !== ""){
+        var tempTo = to;
+        to = from;
+        from = tempTo;
+        await updateCurrencies();
+    }
 }
 
 calculateButton.onclick = async function(event) {
@@ -106,20 +109,57 @@ function showResult(){
     document.getElementById("singleToIndicator").textContent = `1 ${to} = ${singleToValue} ${from}`;
 }
 
+fromInput.onclick = function(event) {
+    setDropdown("from");
+}
+
+toInput.onclick = function(event) {
+    setDropdown("to");
+}
+
 function setDropdown(input){
-    for(var i = 0; i < currencyDataPack.length; i++) {
-        const currency = currencyDataPack[i];
-        var dropdownItem = document.createElement("button");
-        dropdownItem.innerHTML = `${currency.cc} - ${currency.name}`;
-        dropdownItem.onclick = async function(event) {
-            if(selectionInputDropdown.getBoundingClientRect().x == fromInput.getBoundingClientRect().x){
-                from = currency.cc;
-            } else{
-                to = currency.cc;
-            }
-            updateCurrencies();
-            SelectionInputDropdown.style.display = "none";
-        }
-        selectionInputDropdown.append(dropdownItem);
+    while (SelectionInputDropdown.childNodes.length > 1) {
+        SelectionInputDropdown.removeChild(SelectionInputDropdown.lastChild);
     }
+    if(input == "from"){
+        var currentCurrencies = [];
+        for(var i = 0; i < conversions.length; i++) {
+            const currency = String(conversions[i]).split("/")[0];
+            if(!currentCurrencies.includes(currency)){
+                currentCurrencies.push(currency);
+                var dropdownItem = document.createElement("button");
+                dropdownItem.innerHTML = currency;
+                dropdownItem.onclick = function(event) {
+                    from = currency;
+                    to = "";
+                    toInput.placeholder = "Select...";
+                    updateCurrencies();
+                    SelectionInputDropdown.style.display = "none";
+                    if(calculateButton.style.display === "none"){
+                        calculateResult();
+                    }
+                }
+                selectionInputDropdown.append(dropdownItem);
+            }
+        }
+    } else if(input == "to"){
+        for(var i = 0; i < conversions.length; i++) {
+            const currencyFrom = String(conversions[i]).split("/")[0];
+            var currencyTo = String(conversions[i]).split("/")[1];
+            if(currencyFrom === from){
+                var dropdownItem = document.createElement("button");
+                dropdownItem.innerHTML = currencyTo;
+                dropdownItem.onclick = function(event) {
+                    to = currencyTo;
+                    updateCurrencies();
+                    SelectionInputDropdown.style.display = "none";
+                    if(calculateButton.style.display === "none"){
+                        calculateResult();
+                    }
+                }
+                selectionInputDropdown.append(dropdownItem);
+            }
+        }
+    }
+    dropdownLoader.style.display = "none";
 }
