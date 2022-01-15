@@ -41,7 +41,11 @@ updateCurrencies()
 async function updateCurrencies(){
     fromInput.value = from;
     toInput.value = to;
-    // prefix.innerHTML = currencyDataPack.find(currency => currency.cc === from).symbol;
+    try{
+        prefix.innerHTML = currencyDetails[from].symbol.split(",")[0];
+    } catch{
+        prefix.innerHTML = "$";
+    }
 
     if(typeof currentFactor !== "undefined"){
         currentFactor = undefined;
@@ -124,38 +128,32 @@ function setDropdown(input){
     if(input == "from"){
         var currentCurrencies = [];
         for(var i = 0; i < conversions.length; i++) {
-            const currency = String(conversions[i]).split("/")[0];
-            if(!currentCurrencies.includes(currency)){
-                currentCurrencies.push(currency);
+            const currencies = String(conversions[i]).split("/");
+            if(!currentCurrencies.includes(currencies[0])){
+                currentCurrencies.push(currencies[0]);
                 var dropdownItem = document.createElement("button");
-                dropdownItem.innerHTML = currency;
+                dropdownItem.innerHTML = currencies[0];
                 dropdownItem.onclick = function(event) {
-                    from = currency;
-                    to = "";
-                    toInput.placeholder = "Select...";
+                    from = currencies[0];
+                    to = currencies[1];
                     updateCurrencies();
                     SelectionInputDropdown.style.display = "none";
-                    if(calculateButton.style.display === "none"){
-                        calculateResult();
-                    }
                 }
                 selectionInputDropdown.append(dropdownItem);
             }
         }
     } else if(input == "to"){
+        var currentCurrencies = [];
         for(var i = 0; i < conversions.length; i++) {
-            const currencyFrom = String(conversions[i]).split("/")[0];
-            var currencyTo = String(conversions[i]).split("/")[1];
-            if(currencyFrom === from){
+            const currencies = String(conversions[i]).split("/");
+            if(currencies[0] === from){
+                currentCurrencies.push(currencies[1]);
                 var dropdownItem = document.createElement("button");
-                dropdownItem.innerHTML = currencyTo;
+                dropdownItem.innerHTML = currencies[1];
                 dropdownItem.onclick = function(event) {
-                    to = currencyTo;
+                    to = currencies[1];
                     updateCurrencies();
                     SelectionInputDropdown.style.display = "none";
-                    if(calculateButton.style.display === "none"){
-                        calculateResult();
-                    }
                 }
                 selectionInputDropdown.append(dropdownItem);
             }
