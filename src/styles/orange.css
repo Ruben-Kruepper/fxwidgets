@@ -1,15 +1,15 @@
 :root{
-    --html-background-color: white;
-    --element-background-color: white;
-    --button-background-color: white;
-    --primary-color: #5680E9;
-    --primary-bg-color: #e4ebff;
-    --primary-border-color: rgb(150, 150, 150);
+    --html-background-color: #1b1b1b;
+    --element-background-color: #1b1b1b;
+    --button-background-color: #ff7b00;
+    --primary-color: #ff7b00;
+    --primary-bg-color: #262626;
+    --primary-border-color: #F28705;
     --primary-indicator-selected-color: #f1f5ff;
-    --main-text-color: black;
-    --element-text-color: black;
+    --main-text-color: white;
+    --element-text-color: white;
     --result-text-color: black;
-    --default-border-radius: 6px;
+    --default-border-radius: 2px;
     --default-border-width: 1px;
     --loader-invert-colors: 100%;
 }

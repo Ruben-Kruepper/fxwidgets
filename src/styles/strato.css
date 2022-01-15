@@ -1,15 +1,15 @@
 :root{
     --html-background-color: white;
     --element-background-color: white;
-    --button-background-color: white;
-    --primary-color: #5680E9;
-    --primary-bg-color: #e4ebff;
-    --primary-border-color: rgb(150, 150, 150);
+    --button-background-color: #FF8800;
+    --primary-color: #FF8800;
+    --primary-bg-color: #ffc582;
+    --primary-border-color: #FF8800;
     --primary-indicator-selected-color: #f1f5ff;
     --main-text-color: black;
     --element-text-color: black;
     --result-text-color: black;
-    --default-border-radius: 6px;
+    --default-border-radius: 1px;
     --default-border-width: 1px;
     --loader-invert-colors: 100%;
 }

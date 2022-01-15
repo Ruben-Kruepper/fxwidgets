@@ -1,17 +1,17 @@
 :root{
-    --html-background-color: white;
-    --element-background-color: white;
-    --button-background-color: white;
-    --primary-color: #5680E9;
-    --primary-bg-color: #e4ebff;
-    --primary-border-color: rgb(150, 150, 150);
+    --html-background-color: #2C2F33;
+    --element-background-color: #23272A;
+    --button-background-color: #5865F2;
+    --primary-color: #5865F2;
+    --primary-bg-color: #23272A;
+    --primary-border-color: black;
     --primary-indicator-selected-color: #f1f5ff;
-    --main-text-color: black;
-    --element-text-color: black;
+    --main-text-color: white;
+    --element-text-color: white;
     --result-text-color: black;
-    --default-border-radius: 6px;
+    --default-border-radius: 4px;
     --default-border-width: 1px;
-    --loader-invert-colors: 100%;
+    --loader-invert-colors: 0%;
 }
 
 body {
@@ -227,7 +227,7 @@ table th {
     height: 15px;
     margin: auto;
     padding: 0px;
-    color: var(--primary-color);
+    color: var(--main-text-color);
 }
 
 .result-popup {
@@ -237,7 +237,6 @@ table th {
     min-width: 500px;
     text-align: center;
     background-color: white;
-    border: var(--default-border-width) solid black;
 }
 
 .result-popup h1 {
