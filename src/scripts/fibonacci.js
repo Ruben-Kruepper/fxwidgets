@@ -78,24 +78,24 @@ function calculateResults(){
     const low = parseFloat(lowInput.value);
     for(var i = 0; i < retracementsTableItems.length; i++) {
         if(i !== 0){
-            var percentage = parseFloat(retracementsTableItems[i].getElementsByTagName("td")[0].innerHTML);
+            var percentage = parseFloat(retracementsTableItems[i].getElementsByTagName("td")[0].innerHTML) / 100;
             if(uptrend){
-                var value = high + ((high - ((high - low) * percentage)) / 100);
+                var value = high - ((high - low) * percentage);
                 retracementsTableItems[i].getElementsByTagName("td")[1].innerHTML = `<b>${value.toFixed(3)}</b>`;
             } else{
-                var value = low + ((low + ((high - low) * percentage)) / 100);
+                var value = low + ((high - low) * percentage)
                 retracementsTableItems[i].getElementsByTagName("td")[1].innerHTML = `<b>${value.toFixed(3)}</b>`;
             }
         }
     }
     for(var i = 0; i < extensionsTableItems.length; i++) {
         if(i !== 0){
-            var percentage = parseFloat(extensionsTableItems[i].getElementsByTagName("td")[0].innerHTML);
+            var percentage = parseFloat(extensionsTableItems[i].getElementsByTagName("td")[0].innerHTML) / 100;
             if(uptrend){
-                var value = high + ((high + ((high - low) * percentage)) / 100);
+                var value = high + ((high - low) * percentage)
                 extensionsTableItems[i].getElementsByTagName("td")[1].innerHTML = `<b>${value.toFixed(3)}</b>`;
             } else{
-                var value = low + ((low - ((high - low) * percentage)) / 100);
+                var value = low - ((high - low) * percentage)
                 extensionsTableItems[i].getElementsByTagName("td")[1].innerHTML = `<b>${value.toFixed(3)}</b>`;
             }
         }

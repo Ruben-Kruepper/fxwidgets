@@ -1,99 +1,149 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Fibonacci Widget</title>
-        <link rel="stylesheet" type="text/css" href="styles/index.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    </head>
-    <body>
-        <div class="container-clean">
 
-            <!-- Uptrend -->
-            <div class="input-container">
-                <div class="switch-indicator switch-indicator-active" id="uptrend-indicator">
-                    <p>Uptrend</p>
-                </div>
-            </div>
-            
-            <!-- Downtrend -->
-            <div class="input-container">
-                <div class="switch-indicator" id="downtrend-indicator">
-                    <p>Downtrend</p>
-                </div>
-            </div>
+<head>
+    <title>Fibonacci Widget</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
 
-        </div>
+<body>
+    <div class="container-clean">
 
-        <div class="container">
-
-            <!-- High -->
-            <div class="input-container">
-                <p>High (b)</p>
-                <div class="input-box">
-                    <div class="prefix"></div>
-                    <input class="number-input" id="high-input" type="number" placeholder="1.00">
-                </div>
-            </div>
-
-            <!-- Low -->
-            <div class="input-container">
-                <p>Low (a)</p>
-                <div class="input-box">
-                    <div class="prefix"></div>
-                    <input class="number-input" id="low-input" type="number" placeholder="1.00">
-                </div>
-            </div>
-
-            <!-- Custom -->
-            <div class="input-container" style="display: none;">
-                <p>Custom</p>
-                <div class="input-box">
-                    <div class="prefix"></div>
-                    <input class="number-input" id="custom-input" type="number" placeholder="Optional">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="container">
-            <button id="calculate-button">
-                <span>Calculate</span>
-            </button>
-        </div>
-
-        <div class="container">
-            <div class="table-popup" id="result-popup">
-                <table>
-                    <tr>
-                      <th colspan="2">Retracements</th>
-                    </tr>
-                    <tr><td>0% (b)</td><td><b>0</b></td></tr>
-                    <tr><td>23.6%</td><td><b>0</b></td></tr>
-                    <tr><td>38.2%</td><td><b>0</b></td></tr>
-                    <tr><td>50%</td><td><b>0</b></td></tr>
-                    <tr><td>61.8%</td><td><b>0</b></td></tr>
-                    <tr><td>76.4%</td><td><b>0</b></td></tr>
-                    <tr><td>100% (a)</td><td><b>0</b></td></tr>
-                    <tr><td>138.2%</td><td><b>0</b></td></tr>
-                </table>
-                <table>
-                    <tr>
-                      <th colspan="2">Extensions</th>
-                    </tr>
-                    <tr><td>261.8%</td><td><b>0</b></td></tr>
-                    <tr><td>200%</td><td><b>0</b></td></tr>
-                    <tr><td>161.8%</td><td><b>0</b></td></tr>
-                    <tr><td>138.2%</td><td><b>0</b></td></tr>
-                    <tr><td>100%</td><td><b>0</b></td></tr>
-                    <tr><td>61.8%</td><td><b>0</b></td></tr>
-                    <tr><td>50%</td><td><b>0</b></td></tr>
-                    <tr><td>38.2%</td><td><b>0</b></td></tr>
-                    <tr><td>23.6%</td><td><b>0</b></td></tr>
-                </table>
+        <!-- Uptrend -->
+        <div class="input-container">
+            <div class="switch-indicator switch-indicator-active" id="uptrend-indicator">
+                <p>Uptrend</p>
             </div>
         </div>
 
-        <script src="scripts/base.js"></script>
-        <script src="scripts/fibonacci.js"></script>
-    </body>
+        <!-- Downtrend -->
+        <div class="input-container">
+            <div class="switch-indicator" id="downtrend-indicator">
+                <p>Downtrend</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- High -->
+        <div class="input-container">
+            <p>High (b)</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="high-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+        <!-- Low -->
+        <div class="input-container">
+            <p>Low (a)</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="low-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+        <!-- Custom -->
+        <div class="input-container" style="display: none;">
+            <p>Custom</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="custom-input" type="number" placeholder="Optional">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <button id="calculate-button">
+            <span>Calculate</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="table-popup" id="result-popup">
+            <table>
+                <tr>
+                    <th colspan="2">Retracements</th>
+                </tr>
+                <tr>
+                    <td>0% (b)</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>23.6%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>38.2%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>50%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>61.8%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>76.4%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>100% (a)</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>138.2%</td>
+                    <td><b>-</b></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th colspan="2">Extensions</th>
+                </tr>
+                <tr>
+                    <td>261.8%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>200%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>161.8%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>138.2%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>100%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>61.8%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>50%</td>
+                    <td><b>-</b></td>
+                </tr>
+                <tr>
+                    <td>23.6%</td>
+                    <td><b>-</b></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="scripts/base.js"></script>
+    <script src="scripts/fibonacci.js"></script>
+</body>
+
 </html>

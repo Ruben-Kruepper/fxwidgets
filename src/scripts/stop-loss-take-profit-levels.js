@@ -1,139 +1,95 @@
-var conversions;
-fetch("/static/conversions.json")
-  .then(response => response.json())
-  .then(data => setConversions(data));
+let buy = true;
 
-var currencyDetails;
-fetch("/static/conversions.json")
-  .then(response => response.json())
-  .then(data => setCurrencyDetails(data));
+let buyIndicator = document.getElementById("buy-indicator");
+let sellIndicator = document.getElementById("sell-indicator");
 
-function setConversions(data){
-    conversions = data;
-}
+let openPriceInput = document.getElementById("open-price-input");
+let valuePerPipInput = document.getElementById("value-per-pip-input");
+let lotsInput = document.getElementById("lots-input");
 
-function setCurrencyDetails(data){
-    currencyDetails = data;
-}
+let toRiskInput = document.getElementById("to-risk-input");
+let toGainInput = document.getElementById("to-gain-input");
 
-var buy = true;
-
-var buyIndicator = document.getElementById("buy-indicator");
-var sellIndicator = document.getElementById("sell-indicator");
-
-var currencypairInput = document.getElementById("currency-pair-input");
-var currencyInput = document.getElementById("currency-input");
-var positionsizeInput = document.getElementById("position-size-input");
-
-var openpriceInput = document.getElementById("open-price-input");
-var atorislInput = document.getElementById("atorisl-input");
-var atoritpInput = document.getElementById("atoritp-input");
-
-var calculateButton = document.getElementById("calculate-button");
-var switchButton = document.getElementById("switch-button");
-var resultPopup = document.getElementById("result-popup");
-var selectionInputDropdown = document.getElementsByClassName("selection-input-dropdown")[0];
-var dropdownLoader = document.getElementById("dropdown-loader");
+let calculateButton = document.getElementById("calculate-button");
+let resultPopup = document.getElementById("result-popup");
 
 resultPopup.style.display = "none";
 resultPopup.getElementsByTagName("hr")[0].style.width = "0%";
 
-buyIndicator.onclick = function(event) {
-    sellIndicator.classList.remove("switch-indicator-active")
-    buyIndicator.classList.add("switch-indicator-active")
-    buy = true;
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-}
-
-sellIndicator.onclick = function(event) {
-    buyIndicator.classList.remove("switch-indicator-active")
-    sellIndicator.classList.add("switch-indicator-active")
-    buy = false;
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-}
-
-currencypairInput.onclick = function(event) {
-    setDropdown("pair");
-}
-
-currencyInput.onclick = function(event) {
-    setDropdown("single");
-}
-
-openpriceInput.addEventListener("input", async function(event) {
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-});
-
-positionsizeInput.addEventListener("input", async function(event) {
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-});
-
-atorislInput.addEventListener("input", async function(event) {
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-});
-
-atoritpInput.addEventListener("input", async function(event) {
-    if(calculateButton.style.display === "none"){
-        calculateResult();
-    }
-});
-
-calculateButton.onclick = function(event) {
+buyIndicator.onclick = function (event) {
+  sellIndicator.classList.remove("switch-indicator-active");
+  buyIndicator.classList.add("switch-indicator-active");
+  buy = true;
+  if (calculateButton.style.display === "none") {
     calculateResult();
-}
+  }
+};
 
-function calculateResult(){
-    calculateButton.style.display = "none";
-    resultPopup.style.display = "initial";
-    resultPopup.getElementsByTagName("hr")[0].style.width = "100%";
-}
+sellIndicator.onclick = function (event) {
+  buyIndicator.classList.remove("switch-indicator-active");
+  sellIndicator.classList.add("switch-indicator-active");
+  buy = false;
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+};
 
-function setDropdown(input){
-    while (SelectionInputDropdown.childNodes.length > 1) {
-        SelectionInputDropdown.removeChild(SelectionInputDropdown.lastChild);
-    }
-    if(input == "pair"){
-        for(var i = 0; i < conversions.length; i++) {
-            const conversion = conversions[i];
-            var dropdownItem = document.createElement("button");
-            dropdownItem.innerHTML = conversion;
-            dropdownItem.onclick = function(event) {
-                currencypairInput.value = conversion;
-                SelectionInputDropdown.style.display = "none";
-                if(calculateButton.style.display === "none"){
-                    calculateResult();
-                }
-            }
-            selectionInputDropdown.append(dropdownItem);
-        }
-    } else if(input == "single"){
-        var currentCurrencies = [];
-        for(var i = 0; i < conversions.length; i++) {
-            const currency = String(conversions[i]).split("/")[0];
-            if(!currentCurrencies.includes(currency)){
-                currentCurrencies.push(currency);
-                var dropdownItem = document.createElement("button");
-                dropdownItem.innerHTML = currency;
-                dropdownItem.onclick = function(event) {
-                    currencyInput.value = currency;
-                    SelectionInputDropdown.style.display = "none";
-                    if(calculateButton.style.display === "none"){
-                        calculateResult();
-                    }
-                }
-                selectionInputDropdown.append(dropdownItem);
-            }
-        }
-    }
-    dropdownLoader.style.display = "none";
+openPriceInput.addEventListener("input", async function (event) {
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+});
+
+valuePerPipInput.addEventListener("input", async function (event) {
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+});
+
+lotsInput.addEventListener("input", async function (event) {
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+});
+
+toRiskInput.addEventListener("input", async function (event) {
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+});
+
+toGainInput.addEventListener("input", async function (event) {
+  if (calculateButton.style.display === "none") {
+    calculateResult();
+  }
+});
+
+calculateButton.onclick = function (event) {
+  calculateResult();
+};
+
+function calculateResult() {
+  calculateButton.style.display = "none";
+  resultPopup.style.display = "initial";
+  resultPopup.getElementsByTagName("hr")[0].style.width = "100%";
+  const toRisk = parseFloat(toRiskInput.value);
+  const toGain = parseFloat(toGainInput.value);
+  const openPrice = parseFloat(openPriceInput.value) * 10000; //to pips
+  const perPip = parseFloat(valuePerPipInput.value);
+  const lots = parseFloat(lotsInput.value);
+  const pipsToRisk = toRisk / (perPip * lots);
+  const stopLossAt = buy ? openPrice - pipsToRisk : openPrice + pipsToRisk;
+  document.getElementById("stop-loss-at").innerHTML = (
+    stopLossAt / 10000
+  ).toFixed(4);
+  const pipsToProfit = toGain / (perPip * lots);
+  const takeProfitAt = buy
+    ? openPrice + pipsToProfit
+    : openPrice - pipsToProfit;
+  document.getElementById("take-profit-at").innerHTML = (
+    takeProfitAt / 10000
+  ).toFixed(4);
+  document.getElementById("stop-loss-pips").innerHTML = Math.round(pipsToRisk);
+  document.getElementById("take-profit-pips").innerHTML =
+    Math.round(pipsToProfit);
 }
