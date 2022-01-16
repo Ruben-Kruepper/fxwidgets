@@ -1,10 +1,10 @@
 var conversions;
-fetch("http://localhost:3000/conversions.json")
+fetch("/static/conversions.json")
   .then(response => response.json())
   .then(data => setConversions(data));
 
 var currencyDetails;
-fetch("http://localhost:3000/currency_details.json")
+fetch("/static/conversions.json")
   .then(response => response.json())
   .then(data => setCurrencyDetails(data));
 
