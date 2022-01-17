@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Stop Loss Take Profit Widget</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+
+<body>
+    <div class="container-clean">
+
+        <!-- Buy / Long -->
+        <div class="input-container">
+            <div class="switch-indicator switch-indicator-active" id="buy-indicator">
+                <p>Buy / Long</p>
+            </div>
+        </div>
+
+        <!-- Sell / Short -->
+        <div class="input-container">
+            <div class="switch-indicator" id="sell-indicator">
+                <p>Sell / Short</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="input-container">
+            <p>Open</p>
+            <div class="input-box">
+                <input class="number-input" id="open-price-input" type="number" placeholder="0.00">
+            </div>
+        </div>
+        <div class="input-container">
+            <p>Value/Pip</p>
+            <div class="input-box">
+                <input class="number-input" id="value-per-pip-input" type="number" placeholder="0.00">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <p>Lots</p>
+            <div class="input-box">
+                <input class="number-input" id="lots-input" type="number" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="input-container">
+            <p>Amount to Risk</p>
+            <div class="input-box">
+                <input class="number-input" id="to-risk-input" type="number" placeholder="0.00">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <p>Amount to Gain</p>
+            <div class="input-box">
+                <input class="number-input" id="to-gain-input" type="number" placeholder="0.00">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <button id="calculate-button">
+            <span>Calculate</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="result-popup" id="result-popup">
+            <h2>Stop Loss at</h2>
+            <h1 id="stop-loss-at">0:00</h1>
+            <hr>
+            <h2>Take Profit at</h2>
+            <h1 id="take-profit-at">0:00</h1>
+            <hr>
+            <h2>Stop Loss (Pips)</h2>
+            <h1 id="stop-loss-pips">0:00</h1>
+            <hr>
+            <h2>Take Profit (Pips)</h2>
+            <h1 id="take-profit-pips">0:00</h1>
+        </div>
+    </div>
+
+    <div class="selection-input-dropdown">
+        <img src="img/loader.svg" width="22" alt="" id="dropdown-loader">
+    </div>
+
+    <script src="/scripts/base.js"></script>
+    <script src="/scripts/stop-loss-take-profit-levels.js"></script>
+</body>
+
+</html>

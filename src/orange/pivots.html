@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Privots Calculator Widget</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+
+<body>
+    <div class="container-clean">
+
+        <!-- Classic -->
+        <div class="input-container">
+            <div class="switch-indicator switch-indicator-active" id="classic-indicator">
+                <p>Classic</p>
+            </div>
+        </div>
+
+        <!-- Woodies -->
+        <div class="input-container">
+            <div class="switch-indicator" id="woodie-indicator">
+                <p>Woodie</p>
+            </div>
+        </div>
+
+        <!-- Camarilla -->
+        <div class="input-container">
+            <div class="switch-indicator" id="camarilla-indicator">
+                <p>Camarilla</p>
+            </div>
+        </div>
+
+        <!-- Classic -->
+        <div class="input-container">
+            <div class="switch-indicator" id="demark-indicator">
+                <p>DeMark</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- High Price -->
+        <div class="input-container">
+            <p>High Price</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="high-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+        <!-- Low Price -->
+        <div class="input-container">
+            <p>Low Price</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="low-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Open Price -->
+        <div class="input-container">
+            <p>Open Price</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="open-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+        <!-- Close Price -->
+        <div class="input-container">
+            <p>Close Price</p>
+            <div class="input-box">
+                <div class="prefix"></div>
+                <input class="number-input" id="close-input" type="number" placeholder="1.00">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <button id="calculate-button">
+            <span>Calculate</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="table-popup" id="result-popup">
+            <table>
+                <tr>
+                    <th>4th Resistance</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>3rd Resistance</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>2nd Resistance</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>1st Resistance</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>Pivot Point</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>1st Support</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>2nd Support</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>3rd Support</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>4th Support</th>
+                    <td>0</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="/scripts/base.js"></script>
+    <script src="/scripts/pivots.js"></script>
+</body>
+
+</html>
